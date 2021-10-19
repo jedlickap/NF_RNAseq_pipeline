@@ -1,0 +1,42 @@
+digraph "flowchart" {
+p0 [shape=point,label="",fixedsize=true,width=0.1];
+p2 [label="start_index"];
+p0 -> p2 [label="genome"];
+
+p1 [shape=point,label="",fixedsize=true,width=0.1];
+p2 [label="start_index"];
+p1 -> p2 [label="gtf"];
+
+p2 [label="start_index"];
+p5 [label="quantification"];
+p2 -> p5 [label="star_index_ch"];
+
+p3 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromFilePairs"];
+p4 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p3 -> p4;
+
+p4 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p5 [label="quantification"];
+p4 -> p5 [label="read_pairs_ch"];
+
+p4 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="into"];
+p6 [label="fastqc"];
+p4 -> p6 [label="read_pairs2_ch"];
+
+p5 [label="quantification"];
+p7 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p5 -> p7 [label="quant_ch"];
+
+p6 [label="fastqc"];
+p7 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p6 -> p7 [label="fastqc_ch"];
+
+p7 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="mix"];
+p8 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p7 -> p8;
+
+p8 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p9 [label="multiqc"];
+p8 -> p9;
+
+}
